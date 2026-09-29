@@ -3,8 +3,8 @@
 
 **Tanggal:** 4 September 2026
 **Status:** RESMI — acuan positioning baru, menggantikan dokumen lama (diarsipkan di `docs/archived/`)
-**Sumber:** `3-SEPTEMBER-2026/owner/new-new-plan-positioning-businesse.txt` (LEVEL 1-15), `AUDIT-POSITIONING-BISNIS-3-SEPT-2026.md`, `KEPUTUSAN-POSITIONING-ECI-3-SEPT-2026.md`, `BOP-RAB-BEP-2026.md`, `EXECUTION-MASTERPLAN-3-SEPT.md`
-**Kepemilikan:** BIZ & STRATEGY — validasi final oleh owner/co-founder
+**Dasar penyusunan:** arahan pemegang saham (kerangka strategi tingkat 1–15), audit positioning internal, dokumen keuangan BOP/RAB/BEP, dan rencana eksekusi perusahaan.
+**Kepemilikan:** BIZ & STRATEGY — validasi final oleh manajemen/co-founder
 
 > Dokumen ini adalah "bintang utara". Setiap keputusan produk, kampanye, harga, dan kemitraan
 > selama 2026-2027 harus bisa dijawab satu pertanyaan: **"Apakah ini memperkuat status Yz-Course
@@ -62,7 +62,7 @@ Diterjemahkan per audiens:
 
 ### 2.2 Tagline
 - **Utama (2026-2028):** `Belajar Bahasa Inggris Lebih Terarah` — sudah live (IG bio:
-  *Interview • Sidang • Presentasi • IELTS • Kerja 📍 Pontianak | Online & Home Visit*).
+  *Interview • Sidang • Presentasi • IELTS • Kerja 📍 Pontianak | Online & Home Visit* — **perlu diperbarui** mengikuti penangguhan segmen (Sep 2026)).
 - **Visi jangka panjang:** `Dari Pontianak untuk membangun generasi Kalimantan yang siap
   berkomunikasi secara global.`
 - **Brand aspiracional:** `Yz-Course — The English Learning Infrastructure of West Kalimantan`

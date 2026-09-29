@@ -1,35 +1,27 @@
 # YZ-COURSE BUSINESS MODEL 2026–2028 — DEEP RESEARCH REPORT
 
-> ## 🚨 KEPATUHAN DIRECTIVE OWNER — STOP "YZ CAREER" (2026-09-20)
-> Marker directive: **`URGENT_OWNER_NO_YZ_CAREER_20260920`** · Balasan CLINE: **PATUH — kerja ke arah segmen Career/karyawan DIHENTIKAN.**
+> ## Arahan Pemegang Saham — Penangguhan Segmen (20 September 2026)
+> **Keputusan:** kegiatan bisnis untuk segmen **Karier/Profesional**, **Sidang**, dan **Interview** diberhentikan sementara.
+> **Konsekuensi:** seluruh rencana "Sidang Sprint" dibatalkan (produk, landing, eksperimen harga); rencana 90 hari dialihkan ke segmen yang tetap berjalan.
 >
-> ## 🚨🚨 DIRECTIVE LANJUTAN (URGENT, hari yang sama) — STOP **SIDANG** + **INTERVIEW** juga
-> Marker: **`URGENT_OWNER_NO_SIDANG_CAREER_INTERVIEW_20260920`** · Balasan CLINE: **PATUH — landing Sidang yang sempat dibuat sudah DIHAPUS (commit `a17d2455a`).**
-> Arahan owner: *"jangan masuk ke sidang dan career dan interview, urgent"* → **Sidang & Interview pindah dari zona AMAN ke zona DITAHAN.**
->
-> **Konsekuensi:** seluruh rencana **BIZ-02 "Sidang Sprint" DIBATALKAN** (produk, landing, A/B, tracker Fase 1 mengacu ke segmen ini). Perlu re-scope 90 hari ke segmen yang masih aman.
->
-> **Keputusan owner:** *"Kita sebaiknya JANGAN masuk ke segmen profesional karir Yz Career."*
->
-> **Bagian dokumen ini yang TERDAMPAK (status: DITAHAN / menunggu keputusan owner — JANGAN dieksekusi dulu):**
+> **Bagian dokumen ini yang terdampak — status: DITAHAN** (tidak dieksekusi sebelum keputusan lanjutan):
 > | Bagian | Status |
 > |---|---|
-> | SKU `career-english-starter-*` / "Business & Career English" (§Step 6 ladder baris CORE) | 🛑 **DITAHAN** |
-> | Segmen "profesional/karyawan" (§Step 2.1 baris Profesional, §Step 2.2 B2B sawit/tambang/hotel) | 🛑 **DITAHAN** |
-> | §Step 10 B2B "Workplace English — Ops & Buyer Communication" (karyawan perusahaan) | 🛑 **DITAHAN** |
-> | BIZ-03 rapor Passport **target HR/B2B** | 🛑 **DITAHAN** |
-> | THE BIG BET butir B2B korporat sebagai salah satu penggerak | 🛑 **DITAHAN** (butir B2C tetap berlaku) |
+> | SKU Career/Professional English (§Step 6, baris CORE) | 🛑 Ditahan |
+> | Segmen profesional/karyawan (§Step 2.1; §Step 2.2 B2B sawit/tambang/hotel) | 🛑 Ditahan |
+> | §Step 10 B2B "Workplace English" | 🛑 Ditahan |
+> | Rapor Passport untuk target HR/B2B | 🛑 Ditahan |
+> | Butir B2B korporat pada "The Big Bet" | 🛑 Ditahan (butir B2C tetap berlaku) |
 >
-> **Yang TETAP AMAN (tidak kena stop):** Kids, online reguler/grup, umum, TOEFL/IELTS, Speak Club, **Goal Sprint (goal non-sidang/non-interview)**, English Goal Assessment.
+> **Segmen yang tetap berjalan:** Kids, online reguler/grup, umum, TOEFL/IELTS, Speak Club, Goal Sprint (non-sidang/non-interview), English Goal Assessment.
 >
-> **Yang BARU DITAHAN (directive lanjutan):** 🛑 **Sidang** (termasuk Sidang Sprint/BIZ-02) · 🛑 **Interview** · 🛑 **Career/profesional/karyawan**.
->
-> **Belum diputuskan owner** (jangan diasumsikan): ① apakah "Yz Career" dihapus total atau dipertahankan dengan nama baru; ② nasib aset yang SUDAH ADA di segmen terlarang (2 landing slug `/kelas-interview-bahasa-inggris-pontianak` & `/kursus-bahasa-inggris-untuk-kerja`, 3 direktori route, dan 4 SKU: `english-for-sidang-interview-16-sesi`, `career-english-starter-20-sesi`, `business-career-english-16-sesi`, `business-career-english-starter-10-sesi`) — **hapus / redirect / noindex?** Analisis di bawah **belum diubah** — hanya ditandai, agar tidak dianggap rekomendasi aktif.
+> **Menunggu keputusan pemegang saham:** (1) kelanjutan merek "Career" — dihentikan total atau diposisikan ulang; (2) penanganan aset yang telah ada di segmen tersebut (halaman, direktori, 4 SKU) — hapus / alihkan / nonaktifkan. Seluruh analisis pada dokumen ini **tetap tercatat sebagai referensi**, bukan rekomendasi aktif.
 
 **Tanggal riset:** 20 September 2026
-**Disusun untuk:** Owner Yz-Course (Founder/Product/Business/Research view)
-**Metode:** web research (website kompetitor, media lokal, data BPS/Katadata, benchmark nasional) + **data primer internal** (`tb_product` DB, `BOP-RAB-BEP-2026.md`, `AUDIT-POSITIONING-BISNIS`, `VISION-POSITIONING-2026-2027`).
-**Aturan:** setiap angka diberi label `[F]` fakta bersumber · `[A]` asumsi perlu validasi · `[?]` tidak ditemukan. **Tidak ada harga, jumlah siswa, atau market size yang dikarang.**
+**Disusun untuk:** Manajemen Yz-Course (Founder/Product/Business/Research view)
+**Metode:** riset pasar (website kompetitor, media lokal, data BPS/Katadata, benchmark nasional) + data primer internal (katalog produk, dokumen keuangan BOP/RAB/BEP, audit positioning, dokumen visi & positioning).
+**Aturan:** setiap angka diberi label `[F]` fakta bersumber · `[A]` asumsi perlu validasi · `[?]` tidak ditemukan. Tidak ada harga, jumlah siswa, atau ukuran pasar yang dikarang.
+**Revisi 29 Sep 2026:** biaya layanan tutor ditetapkan **Rp0** (tutor tersedia di masing-masing domisili — arahan pemegang saham, Sep 2026); seluruh margin & BEP pada dokumen ini disesuaikan.
 
 ---
 
@@ -145,7 +137,7 @@
 | **Profesional (sawit, tambang, hotel, UMKM)** | Presentasi/meeting/email; **73% karyawan RI terhambat** [F] | Naik jabatan / handle klien asing | Rp1–2,5jt paket | Promosi / klien asing baru | Waktu terbatas | Britemy (online), Lister | Sedang |
 | **Orang tua (pembayar)** | Ingin waktu anak produktif & terukur | Anak percaya diri + bukti progres | sama dgn anak | Lihat hasil anak teman | "Les lain lebih dekat/murah" | pemain fisik dekat rumah | **Tinggi** |
 
-**Caveat:** semua WTP `[A]` **belum divalidasi** — dokumen internal `BOP-RAB-BEP-2026.md` pun masih menandai asumsi tutor/transport perlu konfirmasi owner. → wajib diuji di Step 12.
+**Caveat:** semua WTP `[A]` **belum divalidasi** — dokumen internal `BOP-RAB-BEP-2026.md` pun masih menandai asumsi biaya tutor perlu konfirmasi manajemen. → wajib diuji di Step 12.
 
 ### 2.2 B2B / Institutional Segments
 
@@ -225,7 +217,7 @@
 | 9 | LMS Subscription | Tinggi bila konversi | Sedang | **Sangat rendah** | **Sangat tinggi** | **Tinggi** | Sedang | Sedang | Sedang (banyak pemain nasional) | Sedang, **risiko WTP** |
 | 10 | Outcome-based | Sedang | **Tinggi** (harus ukur outcome) | Sedang | Sedang | Tinggi | Sedang | Sedang | Rendah | **Tinggi** |
 
-### 4C. Trade-off yang harus diputuskan owner
+### 4C. Trade-off yang harus diputuskan manajemen
 
 | Pilihan | Untung | Rugi |
 |---|---|---|
@@ -398,11 +390,11 @@ Struktur dipilih berdasarkan temuan: **entry murah untuk lead**, **core bermargi
 |---|---|---|
 | **Fixed cost bulanan** | **Rp5.775.000** (server 1,2jt; AI 600K; storage 150K; WA 100K; domain 25K; admin CS 2,5jt; content 800K; akuntansi 400K) | [F] |
 | **Komisi tutor** | **45%** dari harga jual | [F] |
-| **Transport home visit** | Rp15.000/sesi | [A] |
-| **Margin paket** | Habit Reset 38% · Online Reguler 47% · Private Starter 38% · Kids 20 36% · Sidang 16 38% · IELTS 24 40% | [F] |
+| **Biaya layanan (transport)** | **Rp0** — tutor tersedia di masing-masing domisili (arahan pemegang saham, Sep 2026) | [F] |
+| **Margin paket** | Habit Reset 51% · Online Reguler 47% · Private Starter 51% · Kids 51% · Presentasi 52% · IELTS 24 52% (revisi tanpa transport) | [F] |
 | **Harga rata-rata mix** | Rp1.300.000/paket | [F] |
-| **Margin rata-rata mix** | Rp550.000/paket | [F] |
-| **BEP overall** | **11 siswa/bulan** | [F] |
+| **Margin rata-rata mix** | ±Rp650.000/paket (revisi Sep 2026) | [F] |
+| **BEP overall** | **±9 siswa/bulan** (revisi Sep 2026) | [F] |
 | **CAC** | Rp95K/lead · **Rp257K/customer** (closing 37%) | [F] |
 | **LTV** | **Rp2.600.000** (2 paket/customer) | [F] |
 | **LTV/CAC** | **10,1×** (atau 5,0× bila hanya 1 paket) | [F] |
@@ -437,18 +429,18 @@ Struktur dipilih berdasarkan temuan: **entry murah untuk lead**, **core bermargi
 | **Base** | **Rp275.000** (550K÷2) | Rp8.000.000 [A] | **30 siswa** |
 | Aggressive | Rp350.000 (700K÷2) | Rp8.000.000 [A] | **23 siswa** |
 
-**Perbandingan dengan fakta internal:** dokumen BOP menghitung **BEP 11 siswa/bulan** dengan basis fixed Rp5,775jt & margin 550K **per paket (bukan per bulan)**. Perbedaan angka muncul dari **definisi siklus** (per paket vs per bulan) — penting untuk diluruskan agar tidak salah ambil keputusan.
+**Perbandingan dengan fakta internal:** dokumen BOP menghitung **BEP ±9 siswa/bulan** (revisi Sep 2026) dengan basis biaya tetap Rp5,775jt & margin ±650K **per paket (bukan per bulan)**. Perbedaan definisi siklus (per paket vs per bulan) perlu diluruskan agar tidak salah mengambil keputusan.
 
 ### 11.4 Sensitivitas (dari `BOP-RAB-BEP` [F])
 
 | Skenario | Margin | BEP | Net (30 siswa) |
 |---|---|---|---|
-| Komisi tutor naik jadi 50% | 480K | 13 siswa | 8,6jt |
-| Harga naik 10% (promo off) | 680K | **9 siswa** | **14,6jt** |
-| Ads naik 50% | 550K | 11 siswa | 10,6jt |
-| Transport home visit naik Rp20K/sesi | 480K | 13 siswa | 8,6jt |
+| Komisi tutor naik jadi 50% | 585K | 10 siswa | 7,8jt |
+| Harga naik 10% (promo off) | 780K | **8 siswa** | **17,4jt** |
+| Ads naik 50% | 650K | 9 siswa | 8,0jt |
+| Diskon promosi 10% | 520K | 11 siswa | 6,0jt |
 
-> **Insight berkunci:** **menaikkan harga 10% (menghentikan diskon) menurunkan BEP lebih efektif daripada menambah siswa**. Ini mendukung aturan owner "jangan bersaing di termurah".
+> **Insight berkunci:** **menaikkan harga 10% (menghentikan diskon) menurunkan BEP lebih efektif daripada menambah siswa**. Ini mendukung kebijakan perusahaan "jangan bersaing di termurah".
 
 ---
 
@@ -464,7 +456,7 @@ Struktur dipilih berdasarkan temuan: **entry murah untuk lead**, **core bermargi
 | **Harga eksperimen** | 3 sel harga: **Rp799K** (existing) · **Rp990K** (+24%) · **Rp1.190K** (+49%) — untuk mengukur elastisitas & menolak asumsi "harga harus murah" |
 | **Target customer** | 30 mahasiswa semester akhir (Untan/PTS) + 10 job seeker |
 | **Landing page** | Halaman khusus "Sidang Sprint" (SEO: *"les sidang bahasa inggris Pontianak"*) + form menuju **English Goal Assessment™ gratis** |
-| **Channel** | (a) SEO + artikel (agent sudah terbukti bisa publish [F]); (b) komunitas/himpunan kampus; (c) IG/TikTok; (d) WA/relasi |
+| **Channel** | (a) SEO + artikel (otomasi konten telah berjalan [F]); (b) komunitas/himpunan kampus; (c) IG/TikTok; (d) WA/relasi |
 | **KPI** | lead, CAC/lead (target ≤Rp95K [F]), assessment→trial, trial→bayar |
 | **Conversion target** | 40 assessment → 12 trial → **5–8 pembeli** (closing 30–40% selaras fakta 37% [F]) |
 | **Retention target** | ≥70% menyelesaikan 10 sesi |
@@ -580,7 +572,7 @@ Struktur dipilih berdasarkan temuan: **entry murah untuk lead**, **core bermargi
 
 **5. Revenue streams** — ① paket B2C Rp599K–2,9jt [F] ② **kontrak B2B** (batch bulanan/kuartal) ③ keanggotaan Rp249–499K/bln [F] ④ fee marketplace 5% [F]. Penggerak jangka-menengah = **②**.
 
-**6. Acquisition engine** — SEO lokal (agent artikel **terbukti jalan** [F]) → **English Goal Assessment™ gratis** [F entry resmi] → live chat AI + WA → trial diagnostik → pembelian. CAC terukur Rp257K/customer; target ≤Rp150K.
+**6. Acquisition engine** — SEO lokal (mesin artikel otomatis **terbukti berjalan** [F]) → **English Goal Assessment™ gratis** [F entry resmi] → live chat AI + WA → trial diagnostik → pembelian. CAC terukur Rp257K/customer; target ≤Rp150K.
 
 **7. Retention engine** — English Passport tiap 4 sesi → laporan ke orang tua/HR → Speak Club bulanan → upsell jalur. LTV Rp2,6jt; LTV/CAC **10,1×** [F].
 

@@ -1,6 +1,6 @@
 # 🏗️ INFRASTRUKTUR PRODUCTION YZ-COURSE (per 29 September 2026)
 
-**Status:** TERVERIFIKASI dari repo + cek live (bukan estimasi) — namun beberapa item ditandai *perlu tindak lanjut*.
+**Status:** Terverifikasi melalui konfigurasi sistem & pemeriksaan langsung di produksi — beberapa item masih ditandai untuk tindak lanjut.
 **Sumber:** `docker-compose.yml`, `nginx-config-production` (update file: 3 Mei 2026 — waspada drift), `socket-server/ecosystem.config.cjs`, `docker-compose.ai-tutor.local.yml`, cek `curl` live 29 Sep, log relay server (29 Sep).
 **Server produksi:** `[server produksi — alamat IP tidak dipublikasikan]` — root site `/var/www/yz-course.com`.
 **Deep-dive historis:** `docs/archived/8-AUGUST-2026/INFRASTRUCTURE-LENGKAP.md` (update 30 Agu 2026).
@@ -53,11 +53,10 @@ Route API (dari `nginx-config-production`, berlaku di domain publik):
 ## 6) Monitoring
 Prometheus (9090→9091), Grafana (3000→3005), postgres_exporter, redis_exporter.
 
-## 7) Automation di server produksi
-- **SEO permanent agent** (start 29 Sep 10:35 UTC): interval **7200s**; audit URL smoke/sitemap/content/media/forum; gate provider **blocked** (Encited 🔑 missing, gate disabled; Cloudflare purge gate enabled tapi **mutasi dimatikan**).
-- **Dawn Index Rush / Encited runner:** hold di luar reset window Cloudflare — **tanpa mutasi**.
-- **Bridge relay server → Codex lokal:** snapshot ke `/tmp/yz-server-bridge-latest.md` + broadcast `/tmp/yz-local-codex-broadcast.md` (sempat `ssh_or_stat_failed`, transient).
-- Secrets agent: disimpan di **secret store server** (tidak dipublikasikan; jangan pernah di-print).
+## 7) Otomasi Operasional di Server Produksi
+- **Layanan SEO otomatis (internal):** siklus audit ±2 jam — ketersediaan halaman, sitemap, konten, media/forum — dengan laporan berkala. Publikasi ke layanan pihak ketiga (refresh/purge) berada di balik gerbang persetujuan dan **dinonaktifkan** sampai kredensial & kebijakan siap.
+- **Penjadwalan indeksasi:** dijalankan di luar jendela pemeliharaan penyedia CDN — **tanpa perubahan pada sistem eksternal**.
+- Kredensial layanan otomasi disimpan pada **penyimpanan rahasia server** (tidak dipublikasikan).
 
 ## 8) Lokal (dev) vs Produksi — jangan tertukar
 | | Lokal | Produksi |
@@ -65,8 +64,8 @@ Prometheus (9090→9091), Grafana (3000→3005), postgres_exporter, redis_export
 | `:3001` | **Host dev server** (`next dev --turbo -p 3001`, log `/tmp/yz-frontend-dev.out`) | Container `frontend-next` (build prod) **tidak publish port**; SSR diakses internal/proxy |
 | `yz-course.com` | — | Static export Next di disk; `app.yz-course.com` = SSR :3001 |
 
-## 9) Perlu tindak lanjut (jujur — belum selesai)
+## 9) Tindak Lanjut Infrastruktur
 1. 🔴 `app.yz-course.com` → 502 (SSR produksi) — cek & hidupkan `:3001` di server.
 2. Sinkronkan `nginx-config-production` repo vs config server aktual (file repo terakhir update 3 Mei; live sudah berubah).
 3. Invoice server IDCloudHost (8 vCPU/24GB) & R2 — untuk memvalidasi angka BOP/RAB [A].
-4. Gate Encited (API key) — menunggu owner; sampai itu, refresh Encited/Index Rush tetap dimatikan.
+4. Gate Encited (API key) — menunggu keputusan manajemen; sampai itu, refresh Encited/Index Rush tetap dimatikan.
