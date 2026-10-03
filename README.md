@@ -18,9 +18,8 @@
 | 02 | [Visi & Positioning 2026–2027](02-VISION-POSITIONING-2026-2027.md) | Visi perusahaan, pernyataan posisi, arahan merek & segmen | ✅ Aktif |
 | 03 | [BOP, RAB & BEP 2026](03-BOP-RAB-BEP-2026.md) | Struktur biaya operasional, rencana anggaran, titik impas | ⚠️ Estimasi — menunggu validasi angka real |
 | 04 | [Infrastruktur Produksi](04-INFRASTRUKTUR-PRODUCTION-2026-09.md) | Arsitektur layanan, jaringan, keamanan operasional, otomasi | ✅ Terverifikasi 3 Okt 2026 |
-| — | [Arsip](arsip/) | Dokumen yang ditangguhkan/tidak aktif — disimpan sebagai jejak keputusan | 📦 Arsip |
 
-> **Catatan:** dokumen operasional internal (audit, rilis produksi, strategi SEO) tidak dipublikasikan di sini dan dikelola secara internal.
+> **Catatan:** dokumen operasional internal (audit, rilis produksi, strategi SEO, arsip keputusan) tidak dipublikasikan di sini dan dikelola secara internal.
 
 ---
 
@@ -39,5 +38,5 @@
 
 **Prinsip penyusunan dokumen**
 - Setiap angka wajib berlabel `[F]` / `[A]` / `[?]` — proyeksi tidak ditulis sebagai fakta
-- Dokumen historis dipindahkan ke `arsip/`, tidak dihapus
+- Dokumen yang tidak lagi berlaku disimpan sebagai arsip internal dan tidak dipublikasikan
 - Setiap perubahan kebijakan bisnis dicatat pada dokumen terkait beserta tanggal revisinya

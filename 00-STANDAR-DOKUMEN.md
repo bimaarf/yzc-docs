@@ -33,7 +33,7 @@
 
 1. Dokumen untuk investor (Business Plan, Financial Plan, RAB, Analisis Risiko, Roadmap) mengutamakan narasi hasil, angka yang berlabel, dan keputusan yang diminta.
 2. Dokumen untuk tim (Arsitektur Teknis, Infrastruktur & Skalabilitas, Rencana Operasional, Rencana Implementasi) mengutamakan instruksi pelaksanaan: acuan kerja yang konkret, kriteria keberhasilan yang terukur, penanggung jawab, dan tenggat waktu.
-3. Dokumen yang tidak lagi berlaku dipindahkan ke folder arsip dan tidak dihapus, sebagai jejak keputusan.
+3. Dokumen yang tidak lagi berlaku disimpan sebagai arsip internal dan tidak dipublikasikan.
 
 ## 5. Prioritas Penyusunan
 
