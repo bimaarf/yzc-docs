@@ -18,10 +18,10 @@
 | 02 | [Visi & Positioning 2026–2027](02-VISION-POSITIONING-2026-2027.md) | Visi perusahaan, pernyataan posisi, arahan merek & segmen | ✅ Aktif |
 | 03 | [BOP, RAB & BEP 2026](03-BOP-RAB-BEP-2026.md) | Struktur biaya operasional, rencana anggaran, titik impas | ⚠️ Estimasi — menunggu validasi angka real |
 | 04 | [Infrastruktur Produksi](04-INFRASTRUKTUR-PRODUCTION-2026-09.md) | Arsitektur layanan, jaringan, keamanan operasional, otomasi | ✅ Terverifikasi 29 Sep 2026 |
-| 05 | [Audit Konsistensi Harga](05-PRICING-AUDIT-2026-09-29.md) | Rekonsiliasi harga lintas kanal penjualan & katalog | 🔎 Menunggu keputusan atas 1 temuan utama |
 | 06 | [SEO Strategy & Playbook 2026](06-SEO-PLAYBOOK-2026.md) | Strategi SEO lokal + prosedur operasi otomasi pencarian | ✅ Berjalan |
-| 07 | [Release & Production Report](07-RELEASE-REPORT-2026-09.md) | Cakupan rilis platform, hasil pengujian, insiden & penanganan | ✅ 29 Sep 2026 |
 | — | [Arsip](arsip/) | Dokumen yang ditangguhkan/tidak aktif — disimpan sebagai jejak keputusan | 📦 Arsip |
+
+> **Catatan:** laporan audit internal (konsistensi harga, rilis produksi) tidak dipublikasikan di repo ini dan dikelola secara internal.
 
 ---
 
@@ -30,11 +30,11 @@
 **Pencapaian**
 - Platform produksi berjalan penuh: situs, layanan kelas digital, dan layanan AI Tutor aktif dengan pemantauan kesehatan sistem
 - Deteksi bahasa pada layanan suara telah dikalibrasi untuk Bahasa Indonesia — kualitas interaksi siswa meningkat
-- Audit harga lintas kanal selesai; sistem promosi telah dibersihkan dari voucher pengujian
+- Konsistensi harga lintas kanal penjualan telah direkonsiliasi
 
 **Agenda manajemen**
-- Finalisasi katalog: satu SKU pada daftar publik belum terdaftar di basis data penjualan
-- Penetapan satu kebijakan promosi (saat ini terdapat lebih dari satu skema aktif)
+- Finalisasi katalog produk publik
+- Penetapan satu kebijakan promosi untuk seluruh kanal
 - Validasi angka BOP/RAB dengan data operasional nyata (invoice, komisi tutor, biaya kanal)
 - Penyelesaian layanan subdomain aplikasi (`app.*`)
 
