@@ -1,71 +1,86 @@
-# 🏗️ INFRASTRUKTUR PRODUCTION YZ-COURSE (per 29 September 2026)
+# Infrastruktur Produksi Yz-Course (per 3 Oktober 2026)
 
-**Status:** Terverifikasi melalui konfigurasi sistem & pemeriksaan langsung di produksi — beberapa item masih ditandai untuk tindak lanjut.
-**Sumber:** `docker-compose.yml`, `nginx-config-production` (update file: 3 Mei 2026 — waspada drift), `socket-server/ecosystem.config.cjs`, `docker-compose.ai-tutor.local.yml`, cek `curl` live 29 Sep, log relay server (29 Sep).
-**Server produksi:** `[server produksi — alamat IP tidak dipublikasikan]` — root site `/var/www/yz-course.com`.
-**Deep-dive historis:** `docs/archived/8-AUGUST-2026/INFRASTRUCTURE-LENGKAP.md` (update 30 Agu 2026).
+- **Status:** Terverifikasi melalui pemeriksaan langsung layanan produksi pada 3 Oktober 2026. Beberapa item ditandai untuk tindak lanjut.
+- **Sumber:** Pemeriksaan langsung layanan produksi, berkas konfigurasi repositori sistem, dan pemeriksaan respons situs publik.
+- **Klasifikasi:** Internal — dokumen ini tidak memuat kredensial, alamat server, maupun akses operasional.
 
-## 1) Routing publik — VERIFIKASI LIVE 29 Sep
-| Domain | Kondisi repo (nginx config) | Hasil cek live 29 Sep |
-|---|---|---|
-| `yz-course.com` / `www` | `www` → 301 ke apex; lalu proxy API/Tool (socket-wa 4002, AI 4003, SD 4004, WebRTC 4012, Laravel php-fpm) + konten dari disk | ✅ **200 — melayani Next.js STATIC EXPORT dari disk** (chunk `/_next/static`, header static, `last-modified` build **13 Sep 2026**) |
-| `app.yz-course.com` | Next.js SSR `:3001` (proxy `@next_app`) | 🔴 **502 — SSR produksi tidak merespons saat dicek** → tindak lanjut lane server |
+---
 
-Route API (dari `nginx-config-production`, berlaku di domain publik):
-`/socket-wa/*` → :4002 · `/api/v2/*`, `/api/blog/`, `/api/chat/` → :4002 · `/api/ai/` → :4003 · `/api/sd/`, `/api/ai-chat/` → :4004 · `/api/v1/api/ai-webrtc/*` → rewrite → :4012 · `/api/v1/api/*` + `/graphql` → PHP-FPM 8.4 (Laravel) · `/api/v1/storage/*` → disk.
+## 1. Layanan Publik
 
-## 2) Docker compose — services & port host (verified dari `docker-compose.yml`)
-| Service | Container | Port host → dalam |
-|---|---|---|
-| postgres (PG16+pgvector) | yz-course-postgres | 5434 → 5432 |
-| postgres-replica | yz-course-postgres-replica | 5435 → 5432 |
-| redis | yz-course-redis | 6380 → 6379 |
-| laravel | yz-course-laravel | 8000 → 8000 |
-| nginx (mode compose) | yz-course-nginx | 3006 → 80 |
-| socket-wa (WA + Socket.IO) | yz-course-socket-wa | 4002 → 4002 |
-| frontend-next (build prod `node server.js`) | yz-course-frontend-next | **tanpa publish host** (internal) |
-| pgadmin | yz-course-pgadmin | 8081 → 80 |
-| ollama | yz-course-ollama | 11435 → 11434 |
-| prometheus | yz-course-prometheus | 9091 → 9090 |
-| postgres-exporter / redis-exporter | — | 9187 / 9121 |
-| grafana | yz-course-grafana | 3005 → 3000 |
-| sd-webui (A1111 CPU) | yz-course-sd-webui | 7860 → 7860 |
-
-## 3) PM2 (`socket-server/ecosystem.config.cjs`)
-| App | Port |
+| Layanan | Kondisi |
 |---|---|
-| SOCKET-WA (WhatsApp + Socket.IO) | 4002 |
-| AI-WORKER | 4003 |
-| WEBRTC-AI-AGENT (Tutor voice) | 4012 |
-| CODEX-CLASSROOM-AI-SUPERVISOR | — (background) |
+| Situs utama (`yz-course.com`) | Beroperasi normal (respons 200) — melayani aplikasi web produksi |
+| Subdomain aplikasi (`app.*`) | Belum beroperasi (respons 502) — menunggu keputusan manajemen |
 
-## 4) AI / Tutor Voice (stack terbaru Sep 2026)
-- **STT:** whisper-cpp `ggml-base.bin` (`WHISPER_THREADS=3`, `-bs 1 -l id`, spawn non-blocking)
-- **TTS berlapis:** Edge TTS **(default, gratis)** → OpenAI TTS (opsional `TUTOR_TTS_PRIMARY=openai`, `gpt-4o-mini-tts`→`tts-1-hd`, circuit-breaker 10 menit) → Google TTS → null
-  - Voice ID default: `en-US-AvaMultilingualNeural` ("ala GPT") + prosodi +18%/+8Hz/+6%; EN: `en-US-EmmaNeural`
-- **Realtime:** VAD 450ms (`VAD_SILENCE_MS`), queue maks 2, barge-in `speech_started`, resume `resume_session_id` (TTL detach 10 menit), RAG budget 700ms, emoji dibuang untuk TTS
-- Override lokal `docker-compose.ai-tutor.local.yml`: `WHISPER_CPP_BIN=/usr/local/bin/whisper-cpp`, `EDGE_TTS_BIN=/opt/edge-tts/bin/edge-tts`; limit `socket-wa` CPU 3.0 / mem 2G
+---
 
-## 5) Storage / CDN / SSL
-- Cloudflare **R2** bucket `yz-cloud` + CDN `cdn.yz-course.com`
-- SSL: LetsEncrypt `app.yz-course.com`; `/etc/ssl/yz-course/*` untuk `yz-course.com`
+## 2. Produk dan Agen yang Beroperasi
 
-## 6) Monitoring
-Prometheus (9090→9091), Grafana (3000→3005), postgres_exporter, redis_exporter.
+Seluruh layanan berikut terpantau berjalan pada pemeriksaan 3 Oktober 2026:
 
-## 7) Otomasi Operasional di Server Produksi
-- **Layanan SEO otomatis (internal):** siklus audit ±2 jam — ketersediaan halaman, sitemap, konten, media/forum — dengan laporan berkala. Publikasi ke layanan pihak ketiga (refresh/purge) berada di balik gerbang persetujuan dan **dinonaktifkan** sampai kredensial & kebijakan siap.
-- **Penjadwalan indeksasi:** dijalankan di luar jendela pemeliharaan penyedia CDN — **tanpa perubahan pada sistem eksternal**.
-- Kredensial layanan otomasi disimpan pada **penyimpanan rahasia server** (tidak dipublikasikan).
+| Layanan | Fungsi Bisnis |
+|---|---|
+| Aplikasi web (Next.js) | Situs publik, katalog produk, pendaftaran, dan portal kelas siswa |
+| API utama (Laravel) | Transaksi penjualan, data produk, penilaian, dan pelaporan |
+| API pendamping | Layanan data pendukung operasional |
+| Gerbang pesan (Socket-WA) | Komunikasi waktu nyata dan pengiriman pesan WhatsApp (notifikasi, tindak lanjut) |
+| Pekerja AI | Antrean tugas kecerdasan buatan (rekomendasi, penilaian, penerbitan) |
+| Agen suara Tutor AI | Percakapan suara dan obrolan Tutor AI dalam satu sesi |
+| Agen kelas (Classroom AI) | Pendamping pembelajaran di ruang kelas digital beserta pengawas kualitas sesi |
+| Penerbit konten | Penerbitan artikel dan materi pemasaran organik terjadwal |
+| Penjaga forum | Moderasi forum diskusi dan pemeriksaan kualitas media |
+| Bot diskusi | Layanan percakapan pendukung komunitas belajar |
+| Layanan pencarian (RAG) | Pencarian materi berbasis basis pengetahuan internal |
+| Pengendali operasional | Orkestrasi tugas operasional terjadwal |
+| Basis data (PostgreSQL) | Penyimpanan seluruh data transaksi dan operasional (akses internal saja) |
+| Tembolok (Redis) | Tembolok dan antrean (akses internal saja) |
+| Penyimpanan media | Penyimpanan objek dan jaringan distribusi konten untuk berkas statis dan media |
 
-## 8) Lokal (dev) vs Produksi — jangan tertukar
-| | Lokal | Produksi |
-|---|---|---|
-| `:3001` | **Host dev server** (`next dev --turbo -p 3001`, log `/tmp/yz-frontend-dev.out`) | Container `frontend-next` (build prod) **tidak publish port**; SSR diakses internal/proxy |
-| `yz-course.com` | — | Static export Next di disk; `app.yz-course.com` = SSR :3001 |
+**Klarifikasi:** layanan pembuatan gambar (SD WebUI) **tidak digunakan** dan tidak berjalan di lingkungan produksi. Seluruh rujukan sebelumnya terhadap layanan tersebut dinyatakan tidak berlaku.
 
-## 9) Tindak Lanjut Infrastruktur
-1. 🔴 `app.yz-course.com` → 502 (SSR produksi) — cek & hidupkan `:3001` di server.
-2. Sinkronkan `nginx-config-production` repo vs config server aktual (file repo terakhir update 3 Mei; live sudah berubah).
-3. Invoice server IDCloudHost (8 vCPU/24GB) & R2 — untuk memvalidasi angka BOP/RAB [A].
-4. Gate Encited (API key) — menunggu keputusan manajemen; sampai itu, refresh Encited/Index Rush tetap dimatikan.
+---
+
+## 3. Alur Permintaan
+
+Permintaan publik diterima melalui penyeimbang lalu lintas (Nginx) dan diteruskan sesuai jenisnya:
+
+- Halaman web → aplikasi web produksi
+- Transaksi dan data (`/api/`) → API utama dan API pendamping
+- Pesan waktu nyata dan WhatsApp → gerbang pesan
+- Layanan suara Tutor AI → agen suara
+- Berkas media → jaringan distribusi konten
+
+Seluruh layanan internal hanya dapat diakses dari dalam server dan tidak terbuka ke publik.
+
+---
+
+## 4. Operasional
+
+- Seluruh agen dikelola oleh pengelola proses (PM2) dengan pemulihan otomatis apabila berhenti.
+- Kesehatan layanan dipantau berkala (situs, API, gerbang pesan, agen suara).
+- Titik pemulihan rilis sebelumnya tersedia di server produksi untuk kebutuhan pengembalian darurat.
+- Prosedur rilis berikutnya yang disarankan: hentikan seluruh layanan sementara saat pembangunan versi produksi, jalankan pembangunan, verifikasi, lalu pulihkan layanan.
+
+---
+
+## 5. Tindak Lanjut
+
+| # | Item | Penanggung Jawab | Prioritas |
+|---|---|---|---|
+| 1 | Keputusan atas subdomain aplikasi (`app.*`): arahkan ke layanan utama atau hentikan | Manajemen | Sedang |
+| 2 | Sinkronisasi berkas konfigurasi lalu lintas di repositori dengan konfigurasi aktual server | Teknis | Sedang |
+| 3 | Validasi tagihan server dan penyimpanan media untuk rekonsiliasi angka operasional | Keuangan | Sedang |
+
+---
+
+## Keputusan yang Dibutuhkan
+
+1. Persetujuan atas penghapusan seluruh rujukan layanan pembuatan gambar dari dokumen perusahaan lainnya.
+2. Keputusan atas nasib subdomain aplikasi (`app.*`).
+
+## Langkah Selanjutnya
+
+1. Tim teknis menutup rujukan layanan yang tidak digunakan pada dokumen terkait.
+2. Manajemen menetapkan keputusan subdomain aplikasi sebelum kampanye berikutnya.
+3. Tim keuangan memvalidasi tagihan infrastruktur terhadap rencana anggaran.
