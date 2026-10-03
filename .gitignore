@@ -2,3 +2,7 @@
 Thumbs.db
 *.tmp
 *.bak
+
+# Berkas biner lokal (tidak dipublikasikan)
+docx/
+LOGO.png
