@@ -15,9 +15,9 @@
 
 ## 2. Perlindungan Informasi (Tanpa Kebocoran Prompt)
 
-1. Dokumen final tidak memuat prompt sistem, instruksi internal, atau jejak proses penyusunan (termasuk nama agen, identifikasi sesi, dan catatan orkestrasi).
-2. Dokumen final tidak memuat kredensial, alamat IP server, token akses, kunci API, maupun jalur penyimpanan rahasia.
-3. Rujukan teknis hanya menunjuk pada lokasi produksi (`yz-course.com`), nama layanan, atau nama berkas konfigurasi yang sudah dipublikasikan — tanpa nilai rahasia.
+1. Dokumen final hanya memuat materi bisnis yang siap dibaca. Catatan proses kerja internal tidak dicantumkan.
+2. Dokumen final tidak memuat kredensial, alamat server, token akses, kunci API, maupun data penyimpanan rahasia.
+3. Rujukan teknis hanya menunjuk pada alamat layanan resmi dan nama layanan yang telah dipublikasikan — tanpa data rahasia.
 4. Pemeriksaan akhir setiap dokumen mencakup pemindaian kebocoran informasi sebelum diserahkan kepada investor atau tim.
 
 ## 3. Konvensi Angka dan Klaim
@@ -26,14 +26,14 @@
 2. Setiap asumsi biaya disertai basis perhitungan yang eksplisit.
 3. Belanja modal (CAPEX) dan belanja operasional (OPEX) dipisahkan apabila relevan.
 4. Setiap rincian anggaran memastikan subtotal dan total konsisten dan dapat ditelusuri ulang.
-5. Klaim teknis diverifikasi dari sumber kode `Yz-Course-V2` atau dari pemeriksaan langsung layanan produksi. Klaim dari sumber eksternal mencantumkan sumber dan tanggal akses.
+5. Klaim teknis diverifikasi dari sistem Yz-Course atau dari pemeriksaan langsung layanan produksi. Klaim dari sumber eksternal mencantumkan sumber dan tanggal akses.
 6. Fitur yang tidak ditemukan di kode sumber dinyatakan sebagai belum ditemukan. Tidak ada fitur yang dikarang.
 
 ## 4. Struktur Dokumen
 
 1. Dokumen untuk investor (Business Plan, Financial Plan, RAB, Analisis Risiko, Roadmap) mengutamakan narasi hasil, angka yang berlabel, dan keputusan yang diminta.
-2. Dokumen untuk tim (Arsitektur Teknis, Infrastruktur & Skalabilitas, Rencana Operasional, Rencana Implementasi) mengutamakan instruksi eksekusi: lokasi berkas atau layanan yang konkret, kriteria sukses yang terukur, pemilik, dan tenggat.
-3. Dokumen historis yang tidak lagi berlaku dipindahkan ke `arsip/` dan tidak dihapus, sebagai jejak keputusan.
+2. Dokumen untuk tim (Arsitektur Teknis, Infrastruktur & Skalabilitas, Rencana Operasional, Rencana Implementasi) mengutamakan instruksi pelaksanaan: acuan kerja yang konkret, kriteria keberhasilan yang terukur, penanggung jawab, dan tenggat waktu.
+3. Dokumen yang tidak lagi berlaku dipindahkan ke folder arsip dan tidak dihapus, sebagai jejak keputusan.
 
 ## 5. Prioritas Penyusunan
 
