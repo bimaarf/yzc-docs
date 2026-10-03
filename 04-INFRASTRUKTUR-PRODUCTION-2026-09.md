@@ -15,33 +15,47 @@
 
 ---
 
-## 2. Produk dan Agen yang Beroperasi
+## 2. Daftar Agen Produksi
 
-Seluruh layanan berikut terpantau berjalan pada pemeriksaan 3 Oktober 2026:
+Seluruh agen berikut terpantau berjalan pada pemeriksaan 3 Oktober 2026:
 
-| Layanan | Fungsi Bisnis |
-|---|---|
-| Aplikasi web (Next.js) | Situs publik, katalog produk, pendaftaran, dan portal kelas siswa |
-| API utama (Laravel) | Transaksi penjualan, data produk, penilaian, dan pelaporan |
-| API pendamping | Layanan data pendukung operasional |
-| Gerbang pesan (Socket-WA) | Komunikasi waktu nyata dan pengiriman pesan WhatsApp (notifikasi, tindak lanjut) |
-| Pekerja AI | Antrean tugas kecerdasan buatan (rekomendasi, penilaian, penerbitan) |
-| Agen suara Tutor AI | Percakapan suara dan obrolan Tutor AI dalam satu sesi |
-| Agen kelas (Classroom AI) | Pendamping pembelajaran di ruang kelas digital beserta pengawas kualitas sesi |
-| Penerbit konten | Penerbitan artikel dan materi pemasaran organik terjadwal |
-| Penjaga forum | Moderasi forum diskusi dan pemeriksaan kualitas media |
-| Bot diskusi | Layanan percakapan pendukung komunitas belajar |
-| Layanan pencarian (RAG) | Pencarian materi berbasis basis pengetahuan internal |
-| Pengendali operasional | Orkestrasi tugas operasional terjadwal |
-| Basis data (PostgreSQL) | Penyimpanan seluruh data transaksi dan operasional (akses internal saja) |
-| Tembolok (Redis) | Tembolok dan antrean (akses internal saja) |
-| Penyimpanan media | Penyimpanan objek dan jaringan distribusi konten untuk berkas statis dan media |
+| Agen | Peran | Status |
+|---|---|---|
+| Aplikasi web | Situs publik, katalog produk, pendaftaran, dan portal kelas siswa | Beroperasi |
+| API utama | Transaksi penjualan, data produk, penilaian, dan pelaporan | Beroperasi |
+| API pendamping | Layanan data pendukung operasional | Beroperasi |
+| Gerbang pesan | Komunikasi waktu nyata dan pengiriman pesan WhatsApp (notifikasi, tindak lanjut) | Beroperasi |
+| Pekerja AI | Antrean tugas kecerdasan buatan (rekomendasi, penilaian, penerbitan) | Beroperasi |
+| Agen suara Tutor AI | Percakapan suara dan obrolan Tutor AI dalam satu sesi | Beroperasi |
+| Agen kelas | Pendamping pembelajaran di ruang kelas digital | Beroperasi |
+| Pengawas kelas | Pengawasan kualitas sesi kelas digital | Beroperasi |
+| Penerbit konten | Penerbitan artikel dan materi pemasaran organik terjadwal | Beroperasi |
+| Penjaga forum | Moderasi forum diskusi | Beroperasi |
+| Pemeriksa media forum | Pemeriksaan kualitas media pada forum | Beroperasi |
+| Bot diskusi | Layanan percakapan pendukung komunitas belajar | Beroperasi |
+| Layanan pencarian | Pencarian materi berbasis basis pengetahuan internal | Beroperasi |
+| Pengendali operasional | Pengaturan tugas operasional terjadwal | Beroperasi |
+| Basis data | Penyimpanan seluruh data transaksi dan operasional (akses internal saja) | Beroperasi |
+| Tembolok | Tembolok dan antrean (akses internal saja) | Beroperasi |
+| Penyimpanan media | Penyimpanan berkas statis dan media melalui jaringan distribusi konten | Beroperasi |
 
-**Klarifikasi:** layanan pembuatan gambar (SD WebUI) **tidak digunakan** dan tidak berjalan di lingkungan produksi. Seluruh rujukan sebelumnya terhadap layanan tersebut dinyatakan tidak berlaku.
+Setiap agen dipantau dan dipulihkan otomatis apabila berhenti.
 
 ---
 
-## 3. Alur Permintaan
+## 3. Keputusan Ruang Lingkup
+
+| Keputusan | Status | Dasar |
+|---|---|---|
+| Layanan pembuatan gambar (SD WebUI) | Di luar lingkup — tidak digunakan dan tidak berjalan di produksi | Verifikasi produksi 3 Oktober 2026 |
+| Segmen Sidang, Interview, dan Karier | Ditangguhkan — seluruh halaman dan produk terkait dinonaktifkan | Arahan pemegang saham, 20 September 2026 |
+| Subdomain aplikasi (`app.*`) | Menunggu keputusan — diarahkan ke layanan utama atau dihentikan | Menunggu keputusan manajemen |
+| Akses pemantauan internal | Di luar lingkup dokumen ini — dikelola terpisah secara internal | Kebijakan keamanan informasi |
+| Aplikasi seluler native | Tidak dibangun — situs web dan pesan instan dinilai mencukupi | Model bisnis 2026–2028 |
+
+---
+
+## 4. Alur Permintaan
 
 Permintaan publik diterima melalui penyeimbang lalu lintas (Nginx) dan diteruskan sesuai jenisnya:
 
@@ -55,7 +69,7 @@ Seluruh layanan internal hanya dapat diakses dari dalam server dan tidak terbuka
 
 ---
 
-## 4. Operasional
+## 5. Operasional
 
 - Seluruh agen dikelola oleh pengelola proses (PM2) dengan pemulihan otomatis apabila berhenti.
 - Kesehatan layanan dipantau berkala (situs, API, gerbang pesan, agen suara).
@@ -64,7 +78,7 @@ Seluruh layanan internal hanya dapat diakses dari dalam server dan tidak terbuka
 
 ---
 
-## 5. Tindak Lanjut
+## 6. Tindak Lanjut
 
 | # | Item | Penanggung Jawab | Prioritas |
 |---|---|---|---|
